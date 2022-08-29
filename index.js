@@ -42,20 +42,25 @@ app.post('/tweets', (req, res) => {
 app.get('/tweets', (req, res) => {
 
     const uniao = [];
+   
+    
 
     for(let i=0; i<tweets.length; i++){
 
         for(let j=0; j<usuarios.length; j++){
 
             if(usuarios[j].username === tweets[i].username ){
-                uniao.push({usuario:usuarios[j].username, avatar:usuarios[j].avatar, tweet:tweets[i].tweet})
+                uniao.push({username:usuarios[j].username, avatar:usuarios[j].avatar, tweet:tweets[i].tweet})
             }
         }
     };
 
+    const uniaoreverse = uniao.reverse();
+  
+
     console.log(usuarios);
-    res.status(200).send(usuarios);
+    res.status(200).send(uniaoreverse.slice(0,10));
 })
 
 
-app.listen(5000, () => {console.log('servido on')} );
+app.listen(5000, () => {console.log('servidor on')} );
