@@ -20,7 +20,6 @@ app.post('/sign-up', (req, res) => {
     };
 
     usuarios.push({username, avatar});
-    console.log(usuarios);
     res.status(200).send('Ok');
 
 })
@@ -34,7 +33,6 @@ app.post('/tweets', (req, res) => {
     };
 
     tweets.push({username, tweet});
-    console.log(tweets);
     res.status(200).send("ok");
 
 })
@@ -56,9 +54,7 @@ app.get('/tweets', (req, res) => {
     };
 
     const uniaoreverse = uniao.reverse();
-  
 
-    console.log(usuarios);
     res.status(200).send(uniaoreverse.slice(0,10));
 })
 
